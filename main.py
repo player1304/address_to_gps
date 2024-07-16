@@ -12,7 +12,7 @@ output_file = "locations_new.csv"
 def sanitize_address(address):
     '''Sanitize the address string and remove punctuations, etc.'''
     symbols = string.punctuation + string.whitespace
-    translation_table = str.maketrans('', '', symbols)
+    translation_table = str.maketrans(symbols, "_" * len(symbols))
     return address.translate(translation_table)
 
 def convert_addresses_to_gps(input_file, output_file, api_key):
